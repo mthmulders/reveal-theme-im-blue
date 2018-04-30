@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0, maximum-scale=1, minimum-scale=1">
+    <title>Personal Reveal.js preview</title>
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/personal-theme.css">
+    <link rel="stylesheet" href="lib/css/tomorrow-night-blue.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+        document.getElementsByTagName('head')[0].appendChild(link);
+    </script>
+</head>
+
+<body>
+    <div class="reveal">
+        <div class="slides">
+            <section id="start">
+                <h1>Title slide</h1>
+            </section>
+            <section id="toc">
+                <h2>Agenda</h2>
+                <ul>
+                    <li>Topic 1</li>
+                    <li>Topic 2</li>
+                    <li>Topic 3</li>
+                </ul>
+            </section>
+            <section id="code">
+                <h3>Here, have some code!</h3>
+                <pre><code data-trim data-noescape class="java">public class Demo {
+    public static void main(final String... args) {
+        final Supplier<String> supplier = () -> "world";
+        final String message = String.format(
+            "Hello, %s!", supplier.get());
+        System.out.println(message);
+    }
+}</code></pre>
+            </section>
+            <section id="quote">
+                <h3>Here, have a quote!</h3>
+                <blockquote>This is a famous quote.</blockquote>
+            </section>
+            <section id="math">
+                <h3>Here, have some math!</h3>
+                $e=mc^2$
+            </section>
+            <section id="end">
+                <h3>Questions, remarks, discussions...</h3>
+                <span class="attributions">
+                    <h4>Image attributions</h4>
+                    <ul>
+                        <li>Background image: <a href="https://unsplash.com/@samuelzeller/" target="_blank">Samuel Zeller</a> on <a href="https://unsplash.com/" target="_blank">Unsplash</a>, adapted using <a href="https://duotone.shapefactory.co/" target="_blank">Duotone</a>.</li>
+                    </ul>
+                </span>
+            </section>
+        </div>
+        <div class="footer">
+            @mthmulders
+            <img src="img/logo-texte-devoxx-france-400.png" />
+        </div>
+    </div>
+
+    <script src="js/reveal.js"></script>
+    <script src="lib/js/head.min.js"></script>
+    <script>
+        Reveal.initialize({
+            controls: false,
+            dependencies: [
+                // Interpret Markdown in <section> elements
+                { src: 'plugin/markdown/marked.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
+                { src: 'plugin/markdown/markdown.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
+
+                // Syntax highlight for <code> elements
+                { src: 'plugin/highlight/highlight.js', async: true, callback: function () { hljs.initHighlightingOnLoad(); } },
+
+                // Zoom in and out with Alt+click
+                { src: 'plugin/zoom-js/zoom.js', async: true },
+
+                // Speaker notes
+                { src: 'plugin/notes/notes.js', async: true },
+
+                // Mathematical formulas
+                { src: 'plugin/math/math.js', async: true,  }
+            ],
+            // height: 700,
+            history: true,
+            progress: false,
+            slideNumber: false,
+            // width: 960,
+        });
+    </script>
+</body>
+
+</html>
