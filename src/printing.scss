@@ -1,0 +1,26 @@
+/* Disable background for printing */
+.print-pdf .reveal {
+    background: none;    
+    color: $primaryDark;
+
+    h1, h2, h3, h4, h5, h6 {
+        color: $primaryDark;
+    }
+
+    blockquote {
+        color: $primaryDark;
+    }
+    
+    blockquote:before {
+        color: $primaryLight
+    }
+
+    .footer {
+        background-image: none;
+    }
+
+    pre code.hljs {
+        // Need to override pdf.css here, because we want beautiful code in print, too!
+        font-family: "Fira Code" !important;
+    }
+}
