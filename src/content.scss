@@ -1,0 +1,13 @@
+/* Ensure certain elements are never larger than the slide itself */
+.reveal {
+    img,
+    video,
+    iframe {
+        max-width: 95%;
+        max-height: 95%;
+    }
+
+    .slides {
+        text-align: left;
+    }
+}

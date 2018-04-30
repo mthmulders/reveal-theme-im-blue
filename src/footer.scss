@@ -1,0 +1,22 @@
+@import "./colors.scss";
+
+.reveal .footer {
+    background-image: linear-gradient(to right, $primaryLight, $primaryDark);
+    background-position: center top;
+    bottom: 0px;
+    font-size: 0.5em;
+    height: 30px;
+    padding: 5px;
+    position: absolute;
+    width: 100%;
+    z-index: 10;
+
+    img {
+        position: absolute;
+        right: 0px;
+        top: 0px;
+    }
+    p {
+        margin: 0px 0px;
+    }
+}

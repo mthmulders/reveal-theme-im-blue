@@ -1,0 +1,21 @@
+.reveal blockquote {
+    // background: #f9f9f9;
+    border-left: 10px solid #ffffff;
+    padding: 0.5em 10px;
+    quotes: "\201C" "\201D" "\201C" "\201D";
+    font-size: 1.25em;
+    display: inline-block;
+    text-align: left;
+    padding-left: 2em;
+}
+
+.reveal blockquote:before {
+    color: #ffffff;
+    content: open-quote;
+    font-size: 4em;
+    line-height: 0.1em;
+    margin-right: -4em;
+    display: block;
+    float: left;
+    margin-left: -0.5em;
+}

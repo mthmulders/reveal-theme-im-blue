@@ -1,0 +1,39 @@
+// Default mixins and settings -----------------
+@import "../node_modules/reveal.js/css/theme/template/mixins";
+@import "../node_modules/reveal.js/css/theme/template/settings";
+
+@import "./colors.scss";
+
+@font-face {
+    font-family: 'Fira', monospace;
+    src: url('fonts/Fira/FiraCode-Regular.otf') format('otf');
+}
+@font-face {
+    font-family: 'Montserrat', sans-serif;
+    src: url('fonts/Montserrat/Montserrat-Regular.ttf') format('truetype');
+}
+
+$mainFont: 'Montserrat', sans-serif;
+$mainColor: $mainText;
+$headingFont: 'Montserrat', sans-serif;
+$headingColor: $mainText;
+$headingTextShadow: none;
+$headingTextTransform: none;
+$backgroundColor: none;
+$linkColor: $linkText;
+$linkColorHover: lighten($linkColor, 20%);
+$selectionBackgroundColor: rgba(0, 0, 0, 0.99);
+
+@import "../node_modules/reveal.js/css/theme/template/theme";
+
+//
+// Other customisations
+//
+
+@import "./attributions.scss";
+@import "./background.scss";
+@import "./code.scss";
+@import "./content.scss";
+@import "./footer.scss";
+@import "./printing.scss";
+@import "./quotes.scss";
