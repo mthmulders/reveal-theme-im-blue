@@ -1,0 +1,5 @@
+build/*.css
+build/img/*.png
+node_modules/
+package-lock.json
+preview/img/

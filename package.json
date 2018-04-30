@@ -1,0 +1,26 @@
+{
+    "author": "Maarten Mulders",
+    "bugs": {
+        "url": "https://github.com/mthmulders/personal-reveal-theme/issues"
+    },
+    "dependencies": {},
+    "description": "Personal theme for Reveal.js-based presentations",
+    "devDependencies": {
+        "reveal.js": "3.6.0",
+        "sass": "1.2.0"
+    },
+    "homepage": "https://github.com/mthmulders/personal-reveal-theme",
+    "keywords": [
+        "reveal.js"
+    ],
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "github:mthmulders/personal-reveal-theme"
+    },
+    "scripts": {
+        "build": "sass -s compressed src/main.scss build/personal-theme.css && cp -Rv ./img/* ./build/img/",
+        "dev": "watch -n 2 \"sass src/main.scss preview/css/personal-theme.css && cp -R ./img/* ./preview/img/\""
+    },
+    "version": "0.0.1"
+}
