@@ -6,13 +6,15 @@
     bottom: 0px;
     font-size: 0.5em;
     height: 30px;
-    padding: 5px;
+    padding: 10px;
+    padding-left: 20px;
     position: absolute;
     width: 100%;
     z-index: 10;
 
     .conf-logo {
         position: absolute;
+        padding-right: 20px;
         right: 25px;
     }
 }
