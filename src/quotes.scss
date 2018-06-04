@@ -1,5 +1,7 @@
+@import "./colors.scss";
+
 .reveal blockquote {
-    border-left: 10px solid #ffffff;
+    border-left: 10px solid $mainText;
     padding: 0.5em 10px;
     quotes: "\201C" "\201D" "\201C" "\201D";
     font-size: 1.25em;
@@ -9,7 +11,7 @@
 }
 
 .reveal blockquote:before {
-    color: #ffffff;
+    color: $mainText;
     content: open-quote;
     font-size: 4em;
     line-height: 0.1em;
