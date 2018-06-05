@@ -6,11 +6,11 @@
 
 @font-face {
     font-family: 'Fira', monospace;
-    src: url('fonts/Fira/FiraCode-Regular.otf') format('otf');
+    src: url('../fonts/Fira/FiraCode-Regular.otf') format('otf');
 }
 @font-face {
     font-family: 'Montserrat', sans-serif;
-    src: url('fonts/Montserrat/Montserrat-Regular.ttf') format('truetype');
+    src: url('../fonts/Montserrat/Montserrat-Regular.ttf') format('truetype');
 }
 
 $mainFont: 'Montserrat', sans-serif;
