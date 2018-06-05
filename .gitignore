@@ -1,6 +1,3 @@
-build/*.css
-build/img/*.png
+build/*
 node_modules/
 package-lock.json
-preview/css/personal-theme.css
-preview/img/

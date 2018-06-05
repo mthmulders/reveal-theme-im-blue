@@ -6,6 +6,13 @@
     "dependencies": {},
     "description": "Personal theme for Reveal.js-based presentations",
     "devDependencies": {
+        "browser-sync": "2.24.4",
+        "del": "3.0.0",
+        "fancy-log": "1.3.2",
+        "gulp": "3.9.1",
+        "gulp-concat": "2.6.1",
+        "gulp-debug": "3.2.0",
+        "gulp-sass": "4.0.1",
         "highlight.js": "9.12.0",
         "reveal.js": "3.6.0",
         "sass": "1.2.0"
@@ -20,8 +27,8 @@
         "url": "github:mthmulders/personal-reveal-theme"
     },
     "scripts": {
-        "build": "sass -s compressed src/main.scss build/personal-theme.css && cp -Rv ./img/* ./build/img/",
-        "dev": "watch -n 2 \"sass src/main.scss preview/css/personal-theme.css && cp -R ./img/* ./preview/img/\""
+        "build": "gulp build",
+        "dev": "gulp dev"
     },
     "version": "0.0.1"
 }
