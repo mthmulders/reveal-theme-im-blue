@@ -67,7 +67,7 @@ gulp.task('dev', ['clean', 'copy-preview', 'browserSync', 'copy-fonts', 'copy-im
 });
 
 gulp.task('build', ['clean', 'copy-fonts', 'copy-images', 'sass'], () => {
-    //
+    return gulp.src('./package.json').pipe(gulp.dest('./build/'));
 });
 
 gulp.task('default', () => {

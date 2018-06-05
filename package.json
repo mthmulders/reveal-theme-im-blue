@@ -22,13 +22,15 @@
         "reveal.js"
     ],
     "license": "MIT",
+    "name": "@mthmulders/personal-reveal-theme",
     "repository": {
         "type": "git",
         "url": "github:mthmulders/personal-reveal-theme"
     },
     "scripts": {
         "build": "gulp build",
-        "dev": "gulp dev"
+        "dev": "gulp dev",
+        "package": "gulp build && npm pack build/"
     },
     "version": "0.0.1"
 }
