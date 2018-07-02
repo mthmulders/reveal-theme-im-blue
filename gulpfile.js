@@ -22,9 +22,9 @@ gulp.task('browserSync', () => {
 gulp.task('clean', () => {
     return del.sync([
         'build/**/*',
-        '!preview/css/reveal.css',
-        '!preview/css/print/paper.css',
-        '!preview/lib/css/tomorrow-night-blue.css',
+        '!preview/reveal.css',
+        '!preview/print/paper.css',
+        '!preview/lib/tomorrow-night-blue.css',
     ]);
 });
 
@@ -51,7 +51,7 @@ gulp.task('sass', () => {
         .src('./src/**/*.scss')
         .pipe(sass(sassOptions).on('error', sass.logError))
         .pipe(concat('personal-theme.css'))
-        .pipe(gulp.dest('./build/css'))
+        .pipe(gulp.dest('./build'))
         .pipe(browserSync.reload({ stream: true }));
 });
 
