@@ -1,15 +1,17 @@
-# Personal Reveal.js theme
+# I'm Blue Reveal.js theme
 
-This repository contains my personal Reveal.js theme.
+This is a blueish Reveal.js theme.
 It is based purely on my own taste, or lack thereof.
 
 ## Contributing
 If you like it, feel free, fork it!
+If you use it and find something missing or not working as expected, please send me pull request.
 
 If you don't like it, don't create a pull request to "fix" it.
 Your taste and mine differ, and that's perfectly fine.
 You can fork it and adapt it to match your taste.
 
+That's not to be arrogant, it's just a matter of setting expectations...
 Either way, I'd love to hear from you!
 
 ## Preview
@@ -19,9 +21,8 @@ It contains slides with code, with a mathematical equation, with a quote...
 To use it, first run `npm i`, since it links to the Reveal.js package that is downloaded using npm.
 Then, run the following two commands:
 1. `npm run dev` in the project root
-1. `serve -s` in the `preview/` directory
 
-And access http://localhost:5000/ in your favourite browser.
+Your browser should open the preview slide deck automatically.
 
 ## Documentation references and examples of other themes
 * documentation: [Creating a theme](https://github.com/hakimel/reveal.js/blob/master/css/theme/README.md)
