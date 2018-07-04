@@ -50,7 +50,7 @@ gulp.task('sass', () => {
     return gulp
         .src('./src/**/*.scss')
         .pipe(sass(sassOptions).on('error', sass.logError))
-        .pipe(concat('personal-theme.css'))
+        .pipe(concat('im-blue.css'))
         .pipe(gulp.dest('./build'))
         .pipe(browserSync.reload({ stream: true }));
 });
