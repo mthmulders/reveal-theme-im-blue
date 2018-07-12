@@ -1,10 +1,17 @@
 version: 2
 jobs:
   build:
+    branches:
+      ignore:
+        - gh-pages
     docker:
       - image: circleci/node:7.10
       
     working_directory: ~/repo
+
+    environment:
+      - SOURCE_BRANCH: master
+      - TARGET_BRANCH: gh-pages
 
     steps:
       - checkout
@@ -32,3 +39,20 @@ jobs:
       - run:
           name: Copy distribution files into preview folder
           command: cp -Rv build/* preview/
+      
+      # Prepare publication of preview slide deck
+      - run:
+          name: Deploy preview slide deck
+          command: |
+            if [ $CIRCLE_BRANCH == $SOURCE_BRANCH ]; then
+              git clone $CIRCLE_REPOSITORY_URL ~/out
+              cd ~/out
+              git checkout $TARGET_BRANCH || git checkout --orphan $TARGET_BRANCH
+              git rm -rf .
+              cp -Rv ~/repo/preview/* .
+
+              git add -A
+              git commit -m "Automated deployment to GitHub Pages: ${CIRCLE_SHA1}" --allow-empty
+              git push origin $TARGET_BRANCH
+            fi
+      
