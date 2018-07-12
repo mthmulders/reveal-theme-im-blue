@@ -26,6 +26,7 @@ $heading4Size: 1.0em;
 $backgroundColor: none;
 $linkColor: $linkText;
 $linkColorHover: lighten($linkColor, 20%);
+$mainFontSize: 30px;
 $selectionBackgroundColor: rgba(0, 0, 0, 0.99);
 
 @import "../node_modules/reveal.js/css/theme/template/theme";
