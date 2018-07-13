@@ -2,6 +2,7 @@
 
 This is a blueish Reveal.js theme.
 It is based purely on my own taste, or lack thereof.
+There's a live preview available [here](https://mthmulders.github.io/reveal-theme-im-blue/), which is continuously updated.
 
 ## Contributing
 If you like it, feel free, fork it!
