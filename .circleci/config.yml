@@ -1,0 +1,62 @@
+version: 2
+jobs:
+  build:
+    branches:
+      ignore:
+        - gh-pages
+    docker:
+      - image: circleci/node:7.10
+      
+    working_directory: ~/repo
+
+    environment:
+      - SOURCE_BRANCH: master
+      - TARGET_BRANCH: gh-pages
+
+    steps:
+      - checkout
+
+      # Download and cache dependencies
+      - restore_cache:
+          keys:
+          - v1-dependencies-{{ checksum "package.json" }}
+          # fallback to using the latest cache if no exact match is found
+          - v1-dependencies-
+
+      - run: npm install
+
+      - save_cache:
+          paths:
+            - node_modules
+          key: v1-dependencies-{{ checksum "package.json" }}
+        
+      # Create distribution-ready files, but don't package or publish yet
+      - run:
+          name: Prepare distribution-ready files
+          command: npm run build
+
+      # Copy distribution files into preview folder
+      - run:
+          name: Copy distribution files into preview folder
+          command: cp -Rv build/* preview/
+      
+      # Prepare publication of preview slide deck
+      - run:
+          name: Deploy preview slide deck
+          command: |
+            if [ $CIRCLE_BRANCH == $SOURCE_BRANCH ]; then
+              git config --global user.email $GH_EMAIL
+              git config --global user.name $GH_NAME
+
+              git clone $CIRCLE_REPOSITORY_URL ~/out
+              cd ~/out
+              git checkout $TARGET_BRANCH || git checkout --orphan $TARGET_BRANCH
+              git rm -rf .
+              cp -Rv ~/repo/preview/* .
+              mkdir -p ~/out/.circleci && cp -a ~/repo/.circleci/. ~/out/.circleci/
+
+              git add -A
+              git commit -m "Automated deployment to GitHub Pages: ${CIRCLE_SHA1}" --allow-empty
+              git push origin $TARGET_BRANCH
+            fi
+      
