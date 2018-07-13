@@ -52,7 +52,7 @@ jobs:
               cd ~/out
               git checkout $TARGET_BRANCH || git checkout --orphan $TARGET_BRANCH
               git rm -rf .
-              cp -Rv ~/repo/preview/* .
+              cp -LRv ~/repo/preview/* .
               mkdir -p ~/out/.circleci && cp -a ~/repo/.circleci/. ~/out/.circleci/
 
               git add -A
