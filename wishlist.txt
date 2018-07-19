@@ -1,0 +1,1 @@
+[X] Automated build, with preview generation & publication (GitHub Pages)
