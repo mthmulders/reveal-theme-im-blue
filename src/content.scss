@@ -1,13 +1,16 @@
 /* Ensure certain elements are never larger than the slide itself */
-.reveal section {
-    img,
-    video,
-    iframe {
-        border: none;
-        max-width: 95%;
-        max-height: 95%;
+.reveal {
+    section {
+        img,
+        video,
+        iframe {
+            border: none;
+            max-width: 95%;
+            max-height: 95%;
+        }
     }
 
+    /* Ensure text is aligned to the left */
     .slides {
         text-align: left;
     }
