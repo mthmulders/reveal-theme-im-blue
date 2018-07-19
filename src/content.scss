@@ -1,8 +1,9 @@
 /* Ensure certain elements are never larger than the slide itself */
-.reveal {
+.reveal section {
     img,
     video,
     iframe {
+        border: none;
         max-width: 95%;
         max-height: 95%;
     }
