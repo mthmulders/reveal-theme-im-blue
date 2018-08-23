@@ -1,9 +1,11 @@
 /* Ensure certain elements are never larger than the slide itself */
 .reveal {
+    em, strong {
+        color: #dfc12a;
+    }
+
     section {
-        img,
-        video,
-        iframe {
+        img, video, iframe {
             border: none;
             max-width: 95%;
             max-height: 95%;
