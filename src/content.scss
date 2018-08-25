@@ -1,7 +1,9 @@
+@import "./colors.scss";
+
 /* Ensure certain elements are never larger than the slide itself */
 .reveal {
     em, strong {
-        color: #dfc12a;
+        color: $accentColor;
     }
 
     section {
