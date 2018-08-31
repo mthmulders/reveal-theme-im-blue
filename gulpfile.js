@@ -43,7 +43,8 @@ gulp.task('copy-images', () => {
 gulp.task('copy-preview', () => {
     return gulp
         .src('./preview/**/*')
-        .pipe(gulp.dest('./build/'));
+        .pipe(gulp.dest('./build/'))
+        .pipe(browserSync.reload({ stream: true }));
 });
 
 gulp.task('sass', () => {
@@ -61,6 +62,7 @@ gulp.task('sass', () => {
 
 gulp.task('dev', ['clean', 'copy-preview', 'browserSync', 'copy-fonts', 'copy-images', 'sass'], () => {
     log.info('Registering watch tasks...');
+    gulp.watch('preview/**/*', ['copy-preview']);
     gulp.watch('src/**/*.scss', ['sass']); 
     gulp.watch('src/fonts/**/*', ['copy-fonts']);
     gulp.watch('src/img/**/*', ['copy-images']);
