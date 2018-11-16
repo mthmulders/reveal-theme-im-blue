@@ -35,5 +35,5 @@
         "dev": "gulp dev",
         "package": "gulp build && npm pack build/"
     },
-    "version": "0.0.13"
+    "version": "0.0.14"
 }
