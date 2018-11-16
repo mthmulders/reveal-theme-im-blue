@@ -1,4 +1,6 @@
+@import "./colors.scss";
+
 .reveal {
-    background: url("./img/background.png") no-repeat center center fixed;
+    background-image: linear-gradient(to bottom, $primaryLight, $primaryDark);
     background-size: cover;
 }
