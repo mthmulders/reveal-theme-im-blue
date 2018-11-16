@@ -19,7 +19,12 @@
     }
     
     .speaker {
+        background-image: url('./img/twitter.png');
+        background-position: 0 -11px; 
+        background-repeat: no-repeat;
+        background-size: 45px;
         float: right;
         margin-right: 35px;
+        padding-left: 50px;
     }
 }
