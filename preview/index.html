@@ -38,8 +38,7 @@
                 <pre><code data-trim data-noescape class="java">public class Demo {
     public static void main(final String... args) {
         final Supplier<String> supplier = () -> "world";
-        final String message = String.format(
-            "Hello, %s!", supplier.get());
+        final String message = String.format("Hello, %s!", supplier.get());
         System.out.println(message);
     }
 }</code></pre>
