@@ -1,82 +1,83 @@
-const gulp = require('gulp');
+const { dest, parallel, series, src, watch } = require('gulp');
 
-const browserSync = require('browser-sync').create();
+const _browserSync = require('browser-sync').create();
 const concat = require('gulp-concat');
 const debug = require('gulp-debug');
 const del = require('del');
 const log = require('fancy-log');
-const sass = require('gulp-sass');
+const _sass = require('gulp-sass')
 
-const sassOptions = {
-    outputStyle: 'compressed'
-};
-
-gulp.task('browserSync', () => {
-    return browserSync.init({
+const browserSync = (cb) => {
+    const options = {
         server: {
             baseDir: './build'
         }
-    });
-});
+    };
+    _browserSync.init(options, cb);
+};
 
-gulp.task('clean', () => {
-    return del.sync([
+const clean = (cb) => {
+    const patterns = [
         'build/**/*',
         '!preview/reveal.css',
         '!preview/print/paper.css',
         '!preview/lib/tomorrow-night-blue.css',
-    ]);
-});
+    ];
+    del(patterns).then(r => cb());
+};
 
-gulp.task('copy-fonts', () => {
-    return gulp
-        .src('./fonts/**/*')
-        .pipe(gulp.dest('./build/fonts/'));
-});
+const copyFonts = (cb) => {
+    return src('./fonts/**/*').pipe(dest('./build/fonts/'));
+};
 
-gulp.task('copy-images', () => {
-    return gulp
-        .src('./img/**/*')
-        .pipe(gulp.dest('./build/img/'));
-});
+const copyImages = (cb) => {
+    return src('./img/**/*').pipe(dest('./build/img/'));
+};
 
-gulp.task('copy-preview', () => {
-    return gulp
-        .src('./preview/**/*')
-        .pipe(gulp.dest('./build/'))
-        .pipe(browserSync.reload({ stream: true }));
-});
+const copyPreview = (cb) => {
+    return src('./preview/**/*')
+        .pipe(dest('./build/'))
+        .pipe(_browserSync.reload({ stream: true }));
+};
 
-gulp.task('sass', () => {
-    return gulp
-        .src('./src/**/*.scss')
-        .pipe(sass(sassOptions).on('error', sass.logError))
+const sass = (cb) => {
+    const options = {
+        outputStyle: 'compressed'
+    };
+    
+    return src('./src/**/*.scss')
+        .pipe(_sass(options).on('error', _sass.logError))
         .pipe(concat('im-blue.css'))
-        .pipe(gulp.dest('./build'))
-        .pipe(browserSync.reload({ stream: true }));
-});
+        .pipe(dest('./build'))
+        .pipe(_browserSync.reload({ stream: true }));
+};
 
 //
 // User tasks
 //
 
-gulp.task('dev', ['clean', 'copy-preview', 'browserSync', 'copy-fonts', 'copy-images', 'sass'], () => {
+const dev = series(clean, copyPreview, browserSync, parallel(copyFonts, copyImages, sass), () => {
     log.info('Registering watch tasks...');
-    gulp.watch('preview/**/*', ['copy-preview']);
-    gulp.watch('src/**/*.scss', ['sass']); 
-    gulp.watch('src/fonts/**/*', ['copy-fonts']);
-    gulp.watch('src/img/**/*', ['copy-images']);
+    watch('preview/**/*', copyPreview);
+    watch('src/**/*.scss', sass); 
+    watch('src/fonts/**/*', copyFonts);
+    watch('src/img/**/*', copyImages);
 });
 
-gulp.task('build', ['clean', 'copy-fonts', 'copy-images', 'sass'], () => {
+const build = series(clean, parallel(copyFonts, copyImages, sass), () => {
     const files = [
         './package.json',
         './LICENSE',
         './README.MD',
     ];
-    return gulp.src(files).pipe(gulp.dest('./build/'));
+    return src(files).pipe(dest('./build/'));
 });
 
-gulp.task('default', () => {
-    // place code for your default task here
-});
+exports.build = build;
+exports.dev = dev;
+
+if (process.env.NODE_ENV === 'production') {
+    exports.default = dev;
+} else {
+    exports.default = build;
+}
