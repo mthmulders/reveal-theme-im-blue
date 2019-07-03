@@ -19,6 +19,9 @@
         "natives": "1.1.6",
         "sass": "1.22.2"
     },
+    "engines": {
+        "node": ">=10"
+    },
     "homepage": "https://github.com/mthmulders/reveal-theme-im-blue",
     "keywords": [
         "reveal.js"

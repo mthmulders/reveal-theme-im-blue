@@ -5,7 +5,7 @@ jobs:
       ignore:
         - gh-pages
     docker:
-      - image: circleci/node:7.10
+      - image: circleci/node:lts-jessie-browsers-legacy
       
     working_directory: ~/repo
 
