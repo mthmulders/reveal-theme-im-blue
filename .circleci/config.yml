@@ -24,6 +24,8 @@ jobs:
           - v1-dependencies-
 
       - run: npm install
+      
+      - run: npm rebuild node-sass
 
       - save_cache:
           paths:
