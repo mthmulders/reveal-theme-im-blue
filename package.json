@@ -5,7 +5,7 @@
     },
     "dependencies": {
         "highlight.js": "10.0.1",
-        "reveal.js": "3.6.0"
+        "reveal.js": "4.0.1"
     },
     "description": "Personal theme for Reveal.js-based presentations",
     "devDependencies": {
