@@ -5,18 +5,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0, maximum-scale=1, minimum-scale=1">
     <title>I'm Blue preview</title>
-    <link rel="stylesheet" href="reveal.css">
+    <link rel="stylesheet" href="dist/reset.css">
+    <link rel="stylesheet" href="dist/reveal.css">
     <link rel="stylesheet" href="im-blue.css">
-    <link rel="stylesheet" href="lib/css/tomorrow-night-blue.css">
-
-    <!-- Printing and PDF exports -->
-    <script>
-        var link = document.createElement('link');
-        link.rel = 'stylesheet';
-        link.type = 'text/css';
-        link.href = window.location.search.match(/print-pdf/gi) ? 'print/pdf.css' : 'print/paper.css';
-        document.getElementsByTagName('head')[0].appendChild(link);
-    </script>
+    <link rel="stylesheet" href="plugin/highlight/tomorrow-night-blue.css" id="highlight-theme">
 </head>
 
 <body>
@@ -49,7 +41,7 @@
             </section>
             <section id="math">
                 <h3>Here, have some math!</h3>
-                $e=mc^2$
+                $$e=mc^2$$
             </section>
             <section id="table">
                 <table>
@@ -80,16 +72,23 @@
                 </table>
             </section>
             <section id="subsection">
-                <section id="subsection-1">
+                <section id="subsection-0" data-auto-animate>
                     <h3>Subsection 1</h3>
-                    <div>This requires <strong>some</strong> attention!</div>
+                </section>
+                <section id="subsection-1" data-auto-animate>
+                    <h3>Subsection 1</h3>
+                    <div data-id="xxx">This requires <strong>some</strong> attention!</div>
+                </section>
+                <section id="subsection-2" data-auto-animate>
+                    <h3>Subsection 1</h3>
+                    <div data-id="xxx">This requires <strong>some</strong> attention!</div>
                     <div>This requires <em>some more</em> attention!</div>
                 </section>
-                <section id="subsection-2">
+                <section id="subsection-3">
                     <h3>Subsection 2</h3>
                     <div>This section has <a href="https://maarten.mulders.it">a link</a> in it!</div>
                 </section>
-                <section id="subsection-3">
+                <section id="subsection-4">
                     <h3>Subsection 3</h3>
                 </section>
             </section>
@@ -117,28 +116,16 @@
         </div>
     </div>
 
-    <script src="js/reveal.js"></script>
-    <script src="lib/js/head.min.js"></script>
+    <script src="dist/reveal.js"></script>
+    <script src="plugin/notes/notes.js"></script>
+    <script src="plugin/markdown/markdown.js"></script>
+    <script src="plugin/math/math.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+
     <script>
         Reveal.initialize({
             controls: false,
-            dependencies: [
-                // Interpret Markdown in <section> elements
-                { src: 'plugin/markdown/marked.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
-                { src: 'plugin/markdown/markdown.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
-
-                // Syntax highlight for <code> elements
-                { src: 'plugin/highlight/highlight.js', async: true, callback: function () { hljs.initHighlightingOnLoad(); } },
-
-                // Zoom in and out with Alt+click
-                { src: 'plugin/zoom-js/zoom.js', async: true },
-
-                // Speaker notes
-                { src: 'plugin/notes/notes.js', async: true },
-
-                // Mathematical formulas
-                { src: 'plugin/math/math.js', async: true,  }
-            ],
+            plugins: [ RevealHighlight, RevealMarkdown, RevealMath, RevealNotes ],
             // height: 700,
             history: true,
             progress: false,
