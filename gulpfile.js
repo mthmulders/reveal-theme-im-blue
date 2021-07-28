@@ -5,7 +5,7 @@ const concat = require('gulp-concat');
 const debug = require('gulp-debug');
 const del = require('del');
 const log = require('fancy-log');
-const _sass = require('gulp-sass')
+const _sass = require('gulp-sass')(require('sass'));
 
 const browserSync = (cb) => {
     const options = {
