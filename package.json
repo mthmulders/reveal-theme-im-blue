@@ -15,7 +15,7 @@
         "gulp": "4.0.2",
         "gulp-concat": "2.6.1",
         "gulp-debug": "4.0.0",
-        "gulp-sass": "5.0.0",
+        "gulp-sass": "5.1.0",
         "natives": "1.1.6",
         "sass": "1.45.2"
     },
