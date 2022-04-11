@@ -4,7 +4,7 @@
         "url": "https://github.com/mthmulders/reveal-theme-im-blue/issues"
     },
     "dependencies": {
-        "highlight.js": "11.0.1",
+        "highlight.js": "11.5.1",
         "reveal.js": "3.6.0"
     },
     "description": "Personal theme for Reveal.js-based presentations",
