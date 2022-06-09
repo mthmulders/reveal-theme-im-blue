@@ -17,7 +17,7 @@
         "gulp-debug": "4.0.0",
         "gulp-sass": "5.1.0",
         "natives": "1.1.6",
-        "sass": "1.52.2"
+        "sass": "1.52.3"
     },
     "engines": {
         "node": ">=10"
